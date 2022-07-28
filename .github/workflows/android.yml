@@ -47,7 +47,7 @@ jobs:
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
           make -C src loader.elf loader-m32.elf build.h
-          env CFLAGS="--coverage -static" LDFLAGS=--coverage PREFIX=/usr/tmp make -C src proot care V=1
+          env CFLAGS="--coverage -Wno-error" LDFLAGS="--coverage -static" PREFIX=/usr/tmp make -C src proot care V=1
           sudo make install
 
       - name: Upload libraries
