@@ -44,7 +44,9 @@ jobs:
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
           git clone https://github.com/libexpat/libexpat
-          cd libexpat/expat
+          cd libexpat
+          ls
+          chmod +x configure
           ./configure --prefix=/usr
           make
           sudo make install
