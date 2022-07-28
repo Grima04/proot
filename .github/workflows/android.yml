@@ -48,7 +48,7 @@ jobs:
           ls
           chmod +x buildconf.sh
           ./buildconf.sh
-          ./configure --prefix=/usr
+          ./configure --prefix=/usr --host $TARGET
           make
           sudo make install
 
@@ -65,7 +65,7 @@ jobs:
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
           env CFLAGS="-static" PREFIX=/usr/tmp make -C src loader.elf loader-m32.elf build.h
-          env CFLAGS="--coverage -Wno-error" LDFLAGS="--coverage -static" PREFIX=/usr/tmp make -C src proot V=1
+          env CFLAGS="--coverage --host aarch64-linux-android -Wno-error" LDFLAGS="--coverage -static" PREFIX=/usr/tmp make -C src proot V=1
           sudo make install
 
       - name: Upload libraries
