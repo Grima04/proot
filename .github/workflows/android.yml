@@ -25,7 +25,7 @@ jobs:
         run: |
           sudo mkdir /usr/tmp
           sudo apt update
-          sudo apt install clang-tools-6.0 curl gdb lcov libarchive-dev libtalloc-dev sloccount strace swig uthash-dev python3-dev lzop git
+          sudo apt install clang-tools-6.0 curl gdb lcov libarchive-dev libtalloc-dev sloccount strace swig uthash-dev python3-dev lzop git autotools-dev
           mkdir /tmp/build
           
           wget https://dl.google.com/android/repository/android-ndk-r25-linux.zip
@@ -46,7 +46,8 @@ jobs:
           git clone https://github.com/libexpat/libexpat
           cd libexpat/expat
           ls
-          chmod +x configure
+          chmod +x buildconf.sh
+          ./buildconf.sh
           ./configure --prefix=/usr
           make
           sudo make install
