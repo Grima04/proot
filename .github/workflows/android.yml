@@ -64,8 +64,6 @@ jobs:
           export LD=$TOOLCHAIN/bin/ld
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
-          autoreconf -i
-          ./configure --host aarch64-linux-android
           env CFLAGS="-static" PREFIX=/usr/tmp ARCH=aarch64-linux-android make -C src loader.elf loader-m32.elf build.h
           env CFLAGS="--coverage -Wno-error" LDFLAGS="--coverage -static" ARCH=aarch64-linux-android PREFIX=/usr/tmp make -C src proot V=1
           sudo make install
