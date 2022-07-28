@@ -33,7 +33,7 @@ jobs:
 
       - name: Build libexpat
         run: |
-          export TOOLCHAIN=/home/runner/work/tar/tar/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
+          export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
           export TARGET=aarch64-linux-android
           export API=28
           export AR=$TOOLCHAIN/bin/llvm-ar
@@ -54,7 +54,7 @@ jobs:
 
       - name: Build
         run: |
-          export TOOLCHAIN=/home/runner/work/tar/tar/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
+          export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
           export TARGET=aarch64-linux-android
           export API=28
           export AR=$TOOLCHAIN/bin/llvm-ar
