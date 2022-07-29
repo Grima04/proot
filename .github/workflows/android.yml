@@ -51,6 +51,27 @@ jobs:
           make
           sudo make install
 
+      - name: Build liblzma
+        run: |
+          export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
+          export TARGET=aarch64-linux-android
+          export API=28
+          export AR=$TOOLCHAIN/bin/llvm-ar
+          export CC=$TOOLCHAIN/bin/$TARGET$API-clang
+          export AS=$CC
+          export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
+          export LD=$TOOLCHAIN/bin/ld
+          export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+          export STRIP=$TOOLCHAIN/bin/llvm-strip
+          git clone https://git.tukaani.org/xz.git
+          cd xz
+          chmod +x autogen.sh
+          ./autogen.sh
+          chmod +x configure
+          ./configure --prefix=/usr --host $TARGET
+          make
+          sudo make install
+
       - name: Build libxml2
         run: |
           export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
