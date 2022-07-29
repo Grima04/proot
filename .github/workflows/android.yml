@@ -25,7 +25,7 @@ jobs:
         run: |
           sudo mkdir /usr/tmp
           sudo apt update
-          sudo apt install clang-tools-6.0 curl gdb lcov libarchive-dev libtalloc-dev sloccount strace swig uthash-dev python3-dev lzop git autotools-dev
+          sudo apt install clang-tools-6.0 curl gdb lcov libarchive-dev libtalloc-dev sloccount strace swig uthash-dev python3-dev lzop git autotools-dev libexpat-dev
           mkdir /tmp/build
           
           wget https://dl.google.com/android/repository/android-ndk-r25-linux.zip
@@ -64,7 +64,7 @@ jobs:
           #export LD=$TOOLCHAIN/bin/ld
           #export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           #export STRIP=$TOOLCHAIN/bin/llvm-strip
-          env LDFLAGS="-static" PREFIX=/usr CC=$TOOLCHAIN/bin/$TARGET$API-clang AR=$TOOLCHAIN/bin/llvm-ar RANLIB=$TOOLCHAIN/bin/llvm-ranlib make -C src loader.elf loader-m32.elf build.h
+          env LDFLAGS="" PREFIX=/usr CC=$TOOLCHAIN/bin/$TARGET$API-clang AR=$TOOLCHAIN/bin/llvm-ar RANLIB=$TOOLCHAIN/bin/llvm-ranlib make -C src loader.elf loader-m32.elf build.h
           env CFLAGS="--coverage -Wno-error" LDFLAGS="--coverage -static" PREFIX=/usr CC=$TOOLCHAIN/bin/$TARGET$API-clang AR=$TOOLCHAIN/bin/llvm-ar RANLIB=$TOOLCHAIN/bin/llvm-ranlib make -C src proot
           sudo make install
 
