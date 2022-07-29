@@ -69,7 +69,8 @@ jobs:
           cd talloc-2.3.4
           chmod +x configure
           chmod +x buildtools/bin/waf
-          ./configure --prefix=/usr --host $TARGET
+          ./configure --prefix=/usr --host $TARGET && cat /home/runner/work/proot/proot/talloc-2.3.4/bin/config.log
+          cat /home/runner/work/proot/proot/talloc-2.3.4/bin/config.log
           make
           sudo make install
           
