@@ -68,7 +68,7 @@ jobs:
           tar -xvf talloc-2.3.4.tar.gz
           cd talloc-2.3.4
           chmod +x configure
-          ./configure --prefix=/usr --disable-rpath --disable-python --host $TARGET
+          ./configure --prefix=/usr --disable-rpath --disable-python --cross-compile --host $TARGET
           make
           sudo make install
           
