@@ -68,10 +68,7 @@ jobs:
           tar -xvf talloc-2.3.4.tar.gz
           cd talloc-2.3.4
           chmod +x configure
-          chmod +x buildtools/bin/waf
-          chmod +x buildtools/wafsamba/wscript
-          ./configure --prefix=/usr --host $TARGET && cat /home/runner/work/proot/proot/talloc-2.3.4/bin/config.log
-          cat /home/runner/work/proot/proot/talloc-2.3.4/bin/config.log
+          ./configure --prefix=/usr --disable-rpath --disable-python --host $TARGET
           make
           sudo make install
           
