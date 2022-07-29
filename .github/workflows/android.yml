@@ -95,7 +95,7 @@ jobs:
           Checking getconf large file support flags work: OK
           EOF
           chmod +x configure
-          ./configure --prefix=/usr --disable-rpath --disable-python --cross-compile --host $TARGET
+          ./configure --prefix=/usr --disable-rpath --disable-python --cross-compile --cross-answers=cross-answers.txt --host $TARGET
           make
           sudo make install
           
