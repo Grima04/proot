@@ -57,15 +57,15 @@ jobs:
           export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
           export TARGET=aarch64-linux-android
           export API=28
-          #export AR=$TOOLCHAIN/bin/llvm-ar
-          #export CC=$TOOLCHAIN/bin/$TARGET$API-clang
-          #export AS=$CC
-          #export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
-          #export LD=$TOOLCHAIN/bin/ld
-          #export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
-          #export STRIP=$TOOLCHAIN/bin/llvm-strip
-          env LDFLAGS="" PREFIX=/usr/tmp CC=$TOOLCHAIN/bin/$TARGET$API-clang AR=$TOOLCHAIN/bin/llvm-ar RANLIB=$TOOLCHAIN/bin/llvm-ranlib make -C src loader.elf loader-m32.elf build.h
-          env CFLAGS="--coverage -Wno-error" LDFLAGS="--coverage" PREFIX=/usr/tmp CC=$TOOLCHAIN/bin/$TARGET$API-clang AR=$TOOLCHAIN/bin/llvm-ar RANLIB=$TOOLCHAIN/bin/llvm-ranlib make -C src proot
+          export AR=$TOOLCHAIN/bin/llvm-ar
+          export CC=$TOOLCHAIN/bin/$TARGET$API-clang
+          export AS=$CC
+          export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
+          export LD=$TOOLCHAIN/bin/ld
+          export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+          export STRIP=$TOOLCHAIN/bin/llvm-strip
+          env LDFLAGS="" make -C src loader.elf loader-m32.elf build.h
+          env CFLAGS="--coverage -Wno-error" LDFLAGS="--coverage" make -C src proot
 
       - name: Upload libraries
         uses: actions/upload-artifact@v2
