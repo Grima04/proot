@@ -52,6 +52,47 @@ jobs:
           make
           sudo make install
 
+      - name: Build libtalloc
+        run: |
+          export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
+          export TARGET=aarch64-linux-android
+          export API=28
+          export AR=$TOOLCHAIN/bin/llvm-ar
+          export CC=$TOOLCHAIN/bin/$TARGET$API-clang
+          export AS=$CC
+          export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
+          export LD=$TOOLCHAIN/bin/ld
+          export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+          export STRIP=$TOOLCHAIN/bin/llvm-strip
+          wget https://www.samba.org/ftp/talloc/talloc-2.3.4.tar.gz
+          tar -xvf talloc-2.3.4.tar.gz
+          cd talloc-2.3.4
+          chmod +x configure
+          ./configure --prefix=/usr --host $TARGET
+          make
+          sudo make install
+          
+          
+      - name: Build libarchive
+        run: |
+          export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
+          export TARGET=aarch64-linux-android
+          export API=28
+          export AR=$TOOLCHAIN/bin/llvm-ar
+          export CC=$TOOLCHAIN/bin/$TARGET$API-clang
+          export AS=$CC
+          export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
+          export LD=$TOOLCHAIN/bin/ld
+          export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+          export STRIP=$TOOLCHAIN/bin/llvm-strip
+          wget https://libarchive.org/downloads/libarchive-3.6.1.tar.gz
+          tar -xvf libarchive-3.6.1.tar.gz
+          cd libarchive-3.6.1
+          chmod +x configure
+          ./configure --prefix=/usr --host $TARGET
+          make
+          sudo make install
+
       - name: Build
         run: |
           export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
