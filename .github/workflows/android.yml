@@ -64,8 +64,8 @@ jobs:
           export LD=$TOOLCHAIN/bin/ld
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
-          env LDFLAGS="-static" PREFIX=/usr/tmp ARCH=aarch64-linux-android make -C src loader.elf loader-m32.elf build.h
-          env CFLAGS="--coverage -Wno-error" LDFLAGS="--coverage -static" ARCH=aarch64-linux-android PREFIX=/usr/tmp make -C src proot V=1
+          env LDFLAGS="-static" PREFIX=/usr ARCH=aarch64-linux-android make -C src loader.elf loader-m32.elf build.h
+          env CFLAGS="--coverage -Wno-error" LDFLAGS="--coverage -static" ARCH=aarch64-linux-android PREFIX=/usr make -C src proot V=1
           sudo make install
 
       - name: Upload libraries
