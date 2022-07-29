@@ -86,6 +86,7 @@ jobs:
           export LD=$TOOLCHAIN/bin/ld
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
+          export CFLAGS="-Wno-error"
           wget https://libarchive.org/downloads/libarchive-3.6.1.tar.gz
           tar -xvf libarchive-3.6.1.tar.gz
           cd libarchive-3.6.1
