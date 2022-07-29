@@ -25,7 +25,7 @@ jobs:
         run: |
           sudo mkdir /usr/tmp
           sudo apt update
-          sudo apt install clang-tools-6.0 curl gdb lcov libarchive-dev libtalloc-dev sloccount strace swig uthash-dev python3-dev python3 python2 build-essential lzop git autotools-dev libexpat-dev liblzma-dev lzma-dev xz-utils autopoint
+          sudo apt install clang-tools-6.0 curl gdb lcov libarchive-dev libtalloc-dev sloccount strace swig uthash-dev python3-dev python3 python2 build-essential lzop git autotools-dev libexpat-dev liblzma-dev lzma-dev xz-utils autopoint po4a
           mkdir /tmp/build
           
           wget https://dl.google.com/android/repository/android-ndk-r25-linux.zip
