@@ -98,7 +98,7 @@ jobs:
           chmod +x autogen.sh
           ./autogen.sh
           chmod +x configure
-          ./configure --prefix=/usr --host $TARGET
+          ./configure --prefix=/usr --with-zlib=no --host $TARGET
           make
           sudo make install
 
