@@ -43,6 +43,7 @@ jobs:
           wget http://ports.ubuntu.com/pool/main/p/python3.8/libpython3.8-dev_3.8.2-1ubuntu1_arm64.deb
           dpkg -x libpython3.8-dev_3.8.2-1ubuntu1_arm64.deb libpython3-8-extracted
           #sudo cp -r libpython3-8-extracted/usr/include/aarch64-linux-gnu/ /usr/include/
+          sudo mkdir /usr/include/aarch64-linux-gnu/python3.8/
           sudo cp libpython3-8-extracted/usr/include/aarch64-linux-gnu/python3.8/pyconfig.h /usr/include/aarch64-linux-gnu/python3.8/pyconfig.h
           cp libpython3-8-extracted/usr/include/aarch64-linux-gnu/python3.8/pyconfig.h libxml2-2.9.9/include
           cp libpython3-8-extracted/usr/include/aarch64-linux-gnu/python3.8/pyconfig.h libxml2-2.9.9/include/libxml
