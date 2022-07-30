@@ -85,20 +85,23 @@ jobs:
           export LD=$TOOLCHAIN/bin/ld
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
-          git clone https://gitlab.gnome.org/GNOME/libxml2
-          mkdir libxml2/include/lzma
-          mkdir libxml2/include/libxml/lzma
-          cp /usr/include/lzma.h libxml2/include
-          cp /usr/include/lzma.h libxml2/include/libxml
-          cp /usr/include/lzma/*.h libxml2/include/lzma
-          cp /usr/include/lzma/*.h libxml2/include/libxml/lzma
-          sudo cp /usr/lib/liblzma.so /usr/local/lib
-          sudo cp /usr/lib/liblzma.a /usr/local/lib
-          cd libxml2
-          chmod +x autogen.sh
-          ./autogen.sh --prefix=/usr --with-zlib=no --libdir=/usr/local/lib:/usr/lib --host $TARGET
+          #git clone https://gitlab.gnome.org/GNOME/libxml2
+          wget https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz
+          tar -xvf libxml2-2.9.14.tar.xz
+          cd libxml2-2.9.14
+          #mkdir libxml2/include/lzma
+          #mkdir libxml2/include/libxml/lzma
+          #cp /usr/include/lzma.h libxml2/include
+          #cp /usr/include/lzma.h libxml2/include/libxml
+          #cp /usr/include/lzma/*.h libxml2/include/lzma
+          #cp /usr/include/lzma/*.h libxml2/include/libxml/lzma
+          #sudo cp /usr/lib/liblzma.so /usr/local/lib
+          #sudo cp /usr/lib/liblzma.a /usr/local/lib
+          #cd libxml2
+          #chmod +x autogen.sh
+          #./autogen.sh --prefix=/usr --with-zlib=no --libdir=/usr/local/lib:/usr/lib --host $TARGET
           chmod +x configure
-          #./configure --prefix=/usr --with-zlib=no --libdir=/usr/local/lib:/usr/lib --host $TARGET
+          ./configure --prefix=/usr --with-zlib=no --host $TARGET
           make
           sudo make install
 
