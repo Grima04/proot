@@ -92,6 +92,8 @@ jobs:
           cp /usr/include/lzma.h libxml2/include/libxml
           cp /usr/include/lzma/*.h libxml2/include/lzma
           cp /usr/include/lzma/*.h libxml2/include/libxml/lzma
+          cp /usr/lib/liblzma.so libxml2
+          cp /usr/lib/liblzma.a libxml2
           cd libxml2
           chmod +x autogen.sh
           ./autogen.sh
