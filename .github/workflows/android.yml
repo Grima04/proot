@@ -86,9 +86,9 @@ jobs:
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
           #git clone https://gitlab.gnome.org/GNOME/libxml2
-          wget https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz
-          tar -xvf libxml2-2.9.14.tar.xz
-          cd libxml2-2.9.14
+          wget https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.9.tar.xz
+          tar -xvf libxml2-2.9.9.tar.xz
+          cd libxml2-2.9.9
           #mkdir libxml2/include/lzma
           #mkdir libxml2/include/libxml/lzma
           #cp /usr/include/lzma.h libxml2/include
