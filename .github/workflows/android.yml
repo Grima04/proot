@@ -65,7 +65,7 @@ jobs:
           cd libexpat/expat
           chmod +x buildconf.sh
           ./buildconf.sh
-          ./configure --prefix=/usr --host $TARGET
+          ./configure --prefix=/usr/tmp --host $TARGET
           make
           sudo make install
 
@@ -86,7 +86,7 @@ jobs:
           chmod +x autogen.sh
           ./autogen.sh
           chmod +x configure
-          ./configure --prefix=/usr --host $TARGET
+          ./configure --prefix=/usr/tmp --host $TARGET
           make
           sudo make install
 
@@ -106,7 +106,7 @@ jobs:
           #tar -xf libxml2-2.9.9.tar.xz
           cd libxml2-2.9.9
           chmod +x configure
-          ./configure --prefix=/usr --without-zlib --without-lzma --without-python --host $TARGET
+          ./configure --prefix=/usr/tmp --without-zlib --without-lzma --without-python --host $TARGET
           make
           sudo make install
 
@@ -153,7 +153,7 @@ jobs:
           Checking getconf large file support flags work: OK
           EOF
           chmod +x configure
-          ./configure --prefix=/usr --disable-rpath --disable-python --cross-compile --cross-answers=cross-answers.txt --host $TARGET
+          ./configure --prefix=/usr/tmp --disable-rpath --disable-python --cross-compile --cross-answers=cross-answers.txt --host $TARGET
           make
           sudo make install
           
@@ -175,7 +175,7 @@ jobs:
           #tar -xvf libarchive-3.6.1.tar.gz
           cd libarchive-3.6.1
           chmod +x configure
-          ./configure --prefix=/usr --host $TARGET
+          ./configure --prefix=/usr/tmp --host $TARGET
           make
           sudo make install
 
