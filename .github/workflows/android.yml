@@ -96,10 +96,10 @@ jobs:
           sudo cp /usr/lib/liblzma.a /usr/local/lib
           cd libxml2
           chmod +x autogen.sh
-          ./autogen.sh
+          ./autogen.sh --prefix=/usr --with-zlib=no --libdir=/usr/local/lib:/usr/lib --host $TARGET
           chmod +x configure
-          ./configure --prefix=/usr --with-zlib=no --libdir=/usr/local/lib:/usr/lib --host $TARGET
-          env LDFLAGS="-L/usr/lib" make
+          #./configure --prefix=/usr --with-zlib=no --libdir=/usr/local/lib:/usr/lib --host $TARGET
+          make
           sudo make install
 
       - name: Build libtalloc
