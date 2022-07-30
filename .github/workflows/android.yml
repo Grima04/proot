@@ -99,7 +99,7 @@ jobs:
           ./autogen.sh
           chmod +x configure
           ./configure --prefix=/usr --with-zlib=no --libdir=/usr/local/lib:/usr/lib --host $TARGET
-          make
+          env LDFLAGS="-L/usr/lib" make
           sudo make install
 
       - name: Build libtalloc
