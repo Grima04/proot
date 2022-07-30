@@ -86,8 +86,12 @@ jobs:
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
           git clone https://gitlab.gnome.org/GNOME/libxml2
+          mkdir libxml2/include/lzma
+          mkdir libxml2/include/libxml/lzma
           cp /usr/include/lzma.h libxml2/include
           cp /usr/include/lzma.h libxml2/include/libxml
+          cp /usr/include/lzma/version.h libxml2/include/lzma/version.h
+          cp /usr/include/lzma/version.h libxml2/include/libxml/lzma/version.h
           cd libxml2
           chmod +x autogen.sh
           ./autogen.sh
