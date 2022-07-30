@@ -96,7 +96,7 @@ jobs:
           cp /usr/lib/liblzma.a libxml2
           cd libxml2
           chmod +x autogen.sh
-          ./autogen.sh
+          ./autogen.sh --prefix=/usr --with-zlib=no --host $TARGET
           chmod +x configure
           ./configure --prefix=/usr --with-zlib=no --host $TARGET
           make
