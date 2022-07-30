@@ -106,7 +106,7 @@ jobs:
           #tar -xf libxml2-2.9.9.tar.xz
           cd libxml2-2.9.9
           chmod +x configure
-          ./configure --prefix=/usr --without-zlib --without-lzma --host $TARGET
+          ./configure --prefix=/usr --without-zlib --without-lzma --without-python --host $TARGET
           make
           sudo make install
 
