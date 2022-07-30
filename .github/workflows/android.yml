@@ -39,6 +39,10 @@ jobs:
           
           wget https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.9.tar.xz
           tar -xf libxml2-2.9.9.tar.xz
+          
+          wget http://ports.ubuntu.com/pool/main/p/python3.8/libpython3.8-dev_3.8.2-1ubuntu1_arm64.deb
+          dpkg -x libpython3.8-dev_3.8.2-1ubuntu1_arm64.deb libpython3-8-extracted
+          sudo cp -r libpython3-8-extracted/usr/include/aarch64-linux-gnu/ /usr/include/
 
       - name: Build libexpat
         run: |
