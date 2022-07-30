@@ -30,6 +30,15 @@ jobs:
           
           wget https://dl.google.com/android/repository/android-ndk-r25-linux.zip
           unzip android-ndk-r25-linux.zip
+          
+          wget https://libarchive.org/downloads/libarchive-3.6.1.tar.gz
+          tar -xvf libarchive-3.6.1.tar.gz
+          
+          wget https://www.samba.org/ftp/talloc/talloc-2.3.4.tar.gz
+          tar -xvf talloc-2.3.4.tar.gz
+          
+          wget https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.9.tar.xz
+          tar -xf libxml2-2.9.9.tar.xz
 
       - name: Build libexpat
         run: |
@@ -51,26 +60,26 @@ jobs:
           make
           sudo make install
 
-      #- name: Build liblzma
-        #run: |
-          #export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
-          #export TARGET=aarch64-linux-android
-          #export API=28
-          #export AR=$TOOLCHAIN/bin/llvm-ar
-          #export CC=$TOOLCHAIN/bin/$TARGET$API-clang
-          #export AS=$CC
-          #export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
-          #export LD=$TOOLCHAIN/bin/ld
-          #export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
-          #export STRIP=$TOOLCHAIN/bin/llvm-strip
-          #git clone https://git.tukaani.org/xz.git
-          #cd xz
-          #chmod +x autogen.sh
-          #./autogen.sh
-          #chmod +x configure
-          #./configure --prefix=/usr --host $TARGET
-          #make
-          #sudo make install
+      - name: Build liblzma
+        run: |
+          export TOOLCHAIN=/home/runner/work/proot/proot/android-ndk-r25/toolchains/llvm/prebuilt/linux-x86_64
+          export TARGET=aarch64-linux-android
+          export API=28
+          export AR=$TOOLCHAIN/bin/llvm-ar
+          export CC=$TOOLCHAIN/bin/$TARGET$API-clang
+          export AS=$CC
+          export CXX=$TOOLCHAIN/bin/$TARGET$API-clang++
+          export LD=$TOOLCHAIN/bin/ld
+          export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
+          export STRIP=$TOOLCHAIN/bin/llvm-strip
+          git clone https://git.tukaani.org/xz.git
+          cd xz
+          chmod +x autogen.sh
+          ./autogen.sh
+          chmod +x configure
+          ./configure --prefix=/usr --host $TARGET
+          make
+          sudo make install
 
       - name: Build libxml2
         run: |
@@ -84,8 +93,8 @@ jobs:
           export LD=$TOOLCHAIN/bin/ld
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
-          wget https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.9.tar.xz
-          tar -xf libxml2-2.9.9.tar.xz
+          #wget https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.9.tar.xz
+          #tar -xf libxml2-2.9.9.tar.xz
           cd libxml2-2.9.9
           chmod +x configure
           ./configure --prefix=/usr --with-zlib=no --host $TARGET
@@ -104,8 +113,8 @@ jobs:
           export LD=$TOOLCHAIN/bin/ld
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
-          wget https://www.samba.org/ftp/talloc/talloc-2.3.4.tar.gz
-          tar -xvf talloc-2.3.4.tar.gz
+          #wget https://www.samba.org/ftp/talloc/talloc-2.3.4.tar.gz
+          #tar -xvf talloc-2.3.4.tar.gz
           cd talloc-2.3.4
           cat <<EOF > cross-answers.txt
           Checking uname sysname type: "Linux"
@@ -153,8 +162,8 @@ jobs:
           export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
           export STRIP=$TOOLCHAIN/bin/llvm-strip
           export CFLAGS="-Wno-error"
-          wget https://libarchive.org/downloads/libarchive-3.6.1.tar.gz
-          tar -xvf libarchive-3.6.1.tar.gz
+          #wget https://libarchive.org/downloads/libarchive-3.6.1.tar.gz
+          #tar -xvf libarchive-3.6.1.tar.gz
           cd libarchive-3.6.1
           chmod +x configure
           ./configure --prefix=/usr --host $TARGET
